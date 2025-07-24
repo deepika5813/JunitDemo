@@ -19,6 +19,11 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
+        stage('Check Docker Version') {
+			steps {
+				bat 'docker --version'
+			}
+		}
         stage('Test') {
             steps {
                 bat 'mvn test'
