@@ -5,10 +5,13 @@ pipeline {
         maven 'Maven 3.8.6'  // Must match Jenkins tools config
     }
 
+	environment {
+		APP_NAME = 'JUnit4App_Calculator'
+	}
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/your-repo.git'
+                git 'https://github.com/deepika5813/JunitDemo.git' branch: 'main'
             }
         }
         stage('Build') {
@@ -26,5 +29,19 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage('Archive JAR'){
+			steps {
+				archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+			}
+		}
     }
+    
+    post {
+		success {
+			echo "Build completed successfully!"
+		}
+		failure {
+			echo "Build failed. Please check console logs."
+		}
+	}
 }
