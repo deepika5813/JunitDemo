@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/deepika5813/JunitDemo.git', branch: 'main'
+                git url: 'https://github.com/deepika5813/JunitDemo.git', branch: 'main'
             }
         }
         stage('Build') {
