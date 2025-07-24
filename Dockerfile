@@ -1,7 +1,7 @@
 FROM openjdk:21
 
-COPY target/JunitCalci_docker_app.jar /usr/app/
+COPY target/JUnit4-App-0.0.1-SNAPSHOT.jar /usr/app/
 
 WORKDIR /usr/app
 
-ENTRYPOINT [ "java", "-jar", "JunitCalci_docker_app.jar" ]
+ENTRYPOINT [ "java", "-jar", "JUnit4-App-0.0.1-SNAPSHOT.jar" ]
