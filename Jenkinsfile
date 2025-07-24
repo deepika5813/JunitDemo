@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.8.6'  // Must match Jenkins tools config
+        maven 'Maven 3.9.11'  // Must match Jenkins tools config
     }
 
 	environment {
-		APP_NAME = 'JUnit4App_Calculator'
+		APP_NAME = 'JUnit4-App_Calculator'
 	}
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/deepika5813/JunitDemo.git' branch: 'main'
+                git 'https://github.com/deepika5813/JunitDemo.git', branch: 'main'
             }
         }
         stage('Build') {
